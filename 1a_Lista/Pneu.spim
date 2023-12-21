@@ -1,0 +1,25 @@
+.data
+n: .word 0        #declaracao do primeiro numero
+m: .word 0        #declaracao do segundo numero
+
+.text
+main:
+li $v0, 5         #input do primeiro numero
+syscall
+sw $v0, n         #sw = store word = guardar palavra
+
+li $v0, 5         #input do segundo numero
+syscall
+sw $v0, m
+
+lw $t0, n         #lw = load word = carregar palavra
+lw $t1, m
+
+sub $t2, $t0, $t1 #subtracao
+
+li $v0, 1         #imprimir resultado 
+move $a0, $t2
+syscall
+
+li $v0, 10
+syscall

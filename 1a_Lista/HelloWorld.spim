@@ -1,0 +1,12 @@
+.data
+#nome: .tipo valor
+string: .asciiz "Hello World\n"
+
+.text
+main:
+li $v0, 4
+la $a0, string           #la = load adress = carregar no endereço
+syscall
+
+li $v0, 10               #li = load immediate = carregar imediato
+syscall
